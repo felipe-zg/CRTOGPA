@@ -1,3 +1,4 @@
+import faker from 'faker'
 import { ConvertCRToGPA } from '@/data/use-cases/convert-cr-to-gpa/convert-cr-to-gpa'
 
 type SutTypes = {
@@ -14,7 +15,9 @@ const makeSut = (): SutTypes => {
 describe('ConvertCRToGpa', () => {
   it('should return a GPA converted from the received CR', () => {
     const { sut } = makeSut()
-    const gpa = sut.convert(7.5)
-    expect(gpa).toBe(3)
+    const cr = faker.random.number({ min: 1, max: 10 })
+    const expectedGpa = 4 * cr / 10
+    const gpa = sut.convert(cr)
+    expect(gpa).toBe(expectedGpa)
   })
 })
