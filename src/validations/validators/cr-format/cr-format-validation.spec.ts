@@ -1,3 +1,4 @@
+import faker from 'faker'
 import { InvalidCRFormatError } from '@/domain/errors'
 import { CRFormatValidation } from '@/validations/validators/cr-format/cr-format-validation'
 
@@ -17,5 +18,11 @@ describe('CRFormatValidation', () => {
     const { sut } = makeSut()
     const crResult = sut.validate(10.5)
     expect(crResult).toEqual(new InvalidCRFormatError())
+  })
+
+  it('should return falsy if cr format is valid', () => {
+    const { sut } = makeSut()
+    const crResult = sut.validate(faker.random.number({ min: 1, max: 10 }))
+    expect(crResult).toBeFalsy()
   })
 })
