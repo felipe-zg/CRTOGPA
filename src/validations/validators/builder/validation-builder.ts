@@ -16,6 +16,11 @@ export class ValidationBuilder {
     return this
   }
 
+  cr(): ValidationBuilder {
+    this.validations.push(new CRFormatValidation(this.fieldName))
+    return this
+  }
+
   build(): FieldValidation[] {
     return this.validations
   }
