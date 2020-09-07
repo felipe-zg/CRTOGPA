@@ -3,7 +3,7 @@ import { ValidationBuilder as sut } from '@/validations/validators/builder/valid
 import { RequiredFieldValidation, CRFormatValidation } from '@/validations/validators'
 
 describe('ValidationBuilder', () => {
-  it('should return  RequiredFieldValidation', () => {
+  it('should return RequiredFieldValidation', () => {
     const field = faker.database.column()
     const validators = sut.field(field).required().build()
     expect(validators).toEqual([new RequiredFieldValidation(field)])
@@ -13,5 +13,14 @@ describe('ValidationBuilder', () => {
     const field = faker.database.column()
     const validators = sut.field(field).cr().build()
     expect(validators).toEqual([new CRFormatValidation(field)])
+  })
+
+  it('should return a list of validations', () => {
+    const field = faker.database.column()
+    const validators = sut.field(field).required().cr().build()
+    expect(validators).toEqual([
+      new RequiredFieldValidation(field),
+      new CRFormatValidation(field)
+    ])
   })
 })
