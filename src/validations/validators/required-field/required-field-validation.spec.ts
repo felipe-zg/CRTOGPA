@@ -18,4 +18,10 @@ describe('RequiredFieldValidation', () => {
     const result = sut.validate(undefined)
     expect(result).toEqual(new RequiredFieldError())
   })
+
+  it('should return falsy if field is not empty', () => {
+    const { sut } = makeSut()
+    const result = sut.validate(faker.random.number())
+    expect(result).toBeFalsy()
+  })
 })
