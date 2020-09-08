@@ -31,4 +31,11 @@ describe('ValidationComposite', () => {
     const error = sut.validate(field, faker.random.number({ min: 1, max: 10 }))
     expect(error).toBe(errorMessage)
   })
+
+  it('should rtuirn falsy if all validations succeeds', () => {
+    const field = faker.database.column()
+    const { sut } = makeSut(field)
+    const error = sut.validate(field, faker.random.number({ min: 1, max: 10 }))
+    expect(error).toBeFalsy()
+  })
 })
