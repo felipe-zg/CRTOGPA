@@ -1,0 +1,126 @@
+@import '../../styles/colors.scss';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .header {
+    height: 60px;
+    width: 100vw;
+    background: $primary;
+   }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #ccc;
+    align-items: center;
+    padding: 1rem;
+
+    h2 {
+      font-size: 2.2rem;
+      align-self: flex-start;
+    }
+
+    .inputWrapper {
+      margin-top: 16px;
+      width: 100vw;
+      max-width: 100%;
+      border-radius: 20px;
+
+      input  {
+        border: 1px solid $primary;
+        font-size: 2rem;
+        line-height: 20px;
+        border-radius: 20px;
+        padding:  5px;
+        flex-grow: 1;
+        width: 100vw;
+        max-width: 100%;
+        text-align: center;;
+
+        &:focus {
+          outline-color: $primaryLight;
+        }
+      }
+    }
+
+    .submit {
+      width: 100vw;
+      max-width: 100%;
+      margin-top: 2rem;
+      border-radius: 25px;
+      line-height: 50px;
+    }
+
+    .convertionResult {
+      display: flex;
+      justify-content: center;
+      margin-top: 5rem;
+      padding: 0.8rem;
+      width: 100vw;
+      max-width: 100%;
+      border-radius: 25px;
+      background: $yellow;
+
+      p {
+        font-size: 1.5rem;
+        color: $white
+      }
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+   }
+}
+
+@media (min-width: 700px){
+  .home .main {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1100px){
+ .home {
+
+  .main {
+    width: 60vw;
+    padding: 2rem 10rem;
+
+    h2 {
+      font-size: 3.6rem;
+    }
+
+    .inputWrapper {
+      border-radius: 25px;
+
+      input {
+        border-radius: 25px;
+        padding: 5px 40px 5px 8px;
+      }
+    }
+
+    .submit {
+      width: 50vw;
+      max-width: 50%;
+      margin-top: 5rem;
+      border-radius: 25px;
+    }
+
+    .convertionResult {
+      padding: 1.2rem;
+      border-radius: 25px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+    }
+  }
+ }
+}
