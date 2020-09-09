@@ -24,29 +24,6 @@
       align-self: flex-start;
     }
 
-    .inputWrapper {
-      margin-top: 16px;
-      width: 100vw;
-      max-width: 100%;
-      border-radius: 20px;
-
-      input  {
-        border: 1px solid $primary;
-        font-size: 2rem;
-        line-height: 20px;
-        border-radius: 20px;
-        padding:  5px;
-        flex-grow: 1;
-        width: 100vw;
-        max-width: 100%;
-        text-align: center;;
-
-        &:focus {
-          outline-color: $primaryLight;
-        }
-      }
-    }
-
     .submit {
       width: 100vw;
       max-width: 100%;
@@ -95,15 +72,6 @@
 
     h2 {
       font-size: 3.6rem;
-    }
-
-    .inputWrapper {
-      border-radius: 25px;
-
-      input {
-        border-radius: 25px;
-        padding: 5px 40px 5px 8px;
-      }
     }
 
     .submit {

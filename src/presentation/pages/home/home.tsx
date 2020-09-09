@@ -1,6 +1,8 @@
 import React from 'react'
 import * as S from './styles.scss'
 
+import { Input } from '@/presentation/components'
+
 const home: React.FC = () => {
   return (
     <div className={S.home}>
@@ -10,9 +12,7 @@ const home: React.FC = () => {
       <main className={S.main}>
         <h2>Seu CR</h2>
 
-        <div className={S.inputWrapper}>
-          <input type="text"/>
-        </div>
+        <Input type="text"/>
 
         <button type="button" className={S.submit}>Converter</button>
 
