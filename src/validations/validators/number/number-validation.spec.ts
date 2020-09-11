@@ -31,4 +31,10 @@ describe('CRFormatValidation', () => {
     expect(result1).toBeFalsy()
     expect(result2).toBeFalsy()
   })
+
+  it('should return falsy if value is empty', () => {
+    const { sut } = makeSut()
+    const result = sut.validate('')
+    expect(result).toBeFalsy()
+  })
 })
