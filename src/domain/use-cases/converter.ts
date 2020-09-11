@@ -1,3 +1,3 @@
-export interface Converter{
-  convert: (grade: number) => number
+export interface Converter<T, R> {
+  convert: (grade: T) => R
 }
