@@ -5,6 +5,6 @@ import { ValidationBuilder } from '@/validations/validators/builder/validation-b
 
 export const makeCrValidation = (): ValidationComposite => {
   return ValidationComposite.build([
-    ...ValidationBuilder.field('cr').cr().required().build()
+    ...ValidationBuilder.field('cr').required().cr().build()
   ])
 }
