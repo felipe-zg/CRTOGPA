@@ -4,14 +4,17 @@ import * as S from './styles.scss'
 
 import { Input } from '@/presentation/components'
 import { ValidationComposite } from '@/validations/validation-composite/validation-composite'
+import { Converter } from '@/domain/use-cases'
 
 type HomeProps = {
   validation: ValidationComposite
+  converter: Converter
 }
 
-const home: React.FC<HomeProps> = ({ validation }: HomeProps) => {
+const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
   const [state, setState] = useState({
     cr: 0,
+    gpa: undefined,
     crError: '',
     errorMessage: ''
   })
@@ -23,25 +26,33 @@ const home: React.FC<HomeProps> = ({ validation }: HomeProps) => {
     })
   }, [state.cr])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    setState({
+      ...state,
+      gpa: converter.convert(state.cr)
+    })
+  }
+
   return (
     <div className={S.home}>
       <header className={S.header}>
         <h1>LOGO</h1>
       </header>
       <Context.Provider value={{ state, setState }}>
-        <form className={S.form}>
+        <form className={S.form} onSubmit={handleSubmit}>
           <h2>Seu CR</h2>
 
-          <Input type="text" name="cr" />
+          <Input type="number" step="any" name="cr" />
+          <p className={S.error}>{state.crError}</p>
 
-          <button type="button" className={S.submit}>
+          <button type="submit" className={S.submit} disabled={!!state.crError}>
             Converter
           </button>
 
           <div className={S.convertionResult}>
-            <p>3.7</p>
+            <p>{state.gpa || '-'}</p>
           </div>
-          <p>{state.crError}</p>
 
           <h3>Parabéns ! Seu GPA é ótimo</h3>
         </form>
