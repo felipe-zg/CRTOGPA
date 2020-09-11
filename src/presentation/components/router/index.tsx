@@ -4,13 +4,14 @@ import Home from '@/presentation/pages/home/home'
 
 type Props = {
   makeExample: React.FC
+  makeHome: React.FC
 }
 
-const Router: React.FC<Props> = ({ makeExample }: Props) => {
+const Router: React.FC<Props> = ({ makeExample, makeHome }: Props) => {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={Home}/>
-      <Route path="/example" exact component={makeExample}/>
+      <Route path="/" exact component={makeHome} />
+      <Route path="/example" exact component={makeExample} />
     </BrowserRouter>
   )
 }
