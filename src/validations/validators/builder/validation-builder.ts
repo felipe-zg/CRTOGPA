@@ -1,10 +1,13 @@
 import { FieldValidation } from '@/validations/protocols'
-import { RequiredFieldValidation, CRFormatValidation } from '@/validations/validators'
+import {
+  RequiredFieldValidation,
+  CRFormatValidation
+} from '@/validations/validators'
 
 export class ValidationBuilder {
   private constructor(
     readonly fieldName: string,
-    readonly validations: FieldValidation[]
+    readonly validations: Array<FieldValidation<any>>
   ) {}
 
   static field(field: string): ValidationBuilder {
@@ -21,7 +24,7 @@ export class ValidationBuilder {
     return this
   }
 
-  build(): FieldValidation[] {
+  build(): Array<FieldValidation<any>> {
     return this.validations
   }
 }
