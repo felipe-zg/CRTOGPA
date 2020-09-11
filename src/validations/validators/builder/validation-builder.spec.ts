@@ -27,9 +27,10 @@ describe('ValidationBuilder', () => {
 
   it('should return a list of validations', () => {
     const field = faker.database.column()
-    const validators = sut.field(field).required().cr().build()
+    const validators = sut.field(field).required().number().cr().build()
     expect(validators).toEqual([
       new RequiredFieldValidation(field),
+      new NumberValidation(field),
       new CRFormatValidation(field)
     ])
   })
