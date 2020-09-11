@@ -3,6 +3,7 @@ import {
   RequiredFieldValidation,
   CRFormatValidation
 } from '@/validations/validators'
+import { NumberValidation } from '../number/number-validation'
 
 export class ValidationBuilder {
   private constructor(
@@ -16,6 +17,11 @@ export class ValidationBuilder {
 
   required(): ValidationBuilder {
     this.validations.push(new RequiredFieldValidation(this.fieldName))
+    return this
+  }
+
+  number(): ValidationBuilder {
+    this.validations.push(new NumberValidation(this.fieldName))
     return this
   }
 
