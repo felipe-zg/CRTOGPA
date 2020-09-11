@@ -4,26 +4,20 @@
   margin-top: 16px;
   width: 100vw;
   max-width: 100%;
-  border-radius: 20px;
 
-  input  {
-    border: 1px solid $primary;
+  input {
     font-size: 2rem;
     line-height: 20px;
     border-radius: 20px;
-    padding:  5px;
+    padding: 5px;
     flex-grow: 1;
     width: 100vw;
     max-width: 100%;
-    text-align: center;;
-
-    &:focus {
-      outline-color: $primaryLight;
-    }
+    text-align: center;
   }
 }
 
-@media (min-width: 1100px){
+@media (min-width: 1100px) {
   .inputWrapper {
     border-radius: 25px;
 
