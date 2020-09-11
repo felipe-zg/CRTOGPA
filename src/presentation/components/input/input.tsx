@@ -3,7 +3,10 @@ import Context from '@/presentation/context/form/form-context'
 
 import * as S from './styles.scss'
 
-type Props = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
+type Props = React.DetailedHTMLProps<
+React.InputHTMLAttributes<HTMLInputElement>,
+HTMLInputElement
+>
 
 const input: React.FC<Props> = (props: Props) => {
   const { state, setState } = useContext(Context)
@@ -16,11 +19,11 @@ const input: React.FC<Props> = (props: Props) => {
     })
   }
 
-  const getStatus = (): string => error ? '🔴' : '🟢'
+  const getStatus = (): string => (error ? '🔴' : '🟢')
 
   return (
     <div className={S.inputWrapper}>
-      <input {...props} onChange={handleChange}/>
+      <input {...props} onChange={handleChange} />
     </div>
   )
 }

@@ -6,9 +6,14 @@ import { Input } from '@/presentation/components'
 import { ValidationComposite } from '@/validations/validation-composite/validation-composite'
 import { Converter } from '@/domain/use-cases'
 
+type Gpa = {
+  scale: number
+  grade: string
+}
+
 type HomeProps = {
   validation: ValidationComposite
-  converter: Converter
+  converter: Converter<number, Gpa>
 }
 
 const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
@@ -43,7 +48,7 @@ const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
         <form className={S.form} onSubmit={handleSubmit}>
           <h2>Seu CR</h2>
 
-          <Input type="number" step="any" name="cr" />
+          <Input type="number" step="any" max="10" name="cr" />
           <p className={S.error}>{state.crError}</p>
 
           <button type="submit" className={S.submit} disabled={!!state.crError}>
@@ -51,10 +56,10 @@ const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
           </button>
 
           <div className={S.convertionResult}>
-            <p>{state.gpa || '-'}</p>
+            <p>{state.gpa ? state.gpa.scale.toFixed(2) : '-'}</p>
           </div>
 
-          <h3>Parabéns ! Seu GPA é ótimo</h3>
+          {state.gpa && <h3>Parabéns ! Seu GPA é {state.gpa.grade}</h3>}
         </form>
       </Context.Provider>
 
