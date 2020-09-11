@@ -8,11 +8,19 @@
   box-sizing: border-box;
 }
 
-
 // body {
 //   background-repeat: no-repeat;
 //   background-size: cover;
 // }
+
+input {
+  border: 1px solid $primary;
+
+  &:focus {
+    outline: none;
+    border-color: $blue;
+  }
+}
 
 button {
   background-color: $primary;
@@ -24,5 +32,9 @@ button {
 
   &:hover {
     opacity: 0.9;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
