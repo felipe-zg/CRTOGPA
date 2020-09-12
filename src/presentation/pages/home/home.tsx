@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Context from '@/presentation/context/form/form-context'
-import * as S from './styles.scss'
+import * as S from './styles'
 
 import { Input } from '@/presentation/components'
 import { ValidationComposite } from '@/validations/validation-composite/validation-composite'
@@ -40,34 +40,39 @@ const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
   }
 
   return (
-    <div className={S.home}>
-      <header className={S.header}>
+    <S.Home>
+      <S.Header>
         <h1>CRToGPA</h1>
-      </header>
+      </S.Header>
       <Context.Provider value={{ state, setState }}>
-        <form className={S.form} onSubmit={handleSubmit}>
+        <S.Form onSubmit={handleSubmit}>
           <h2>Seu CR</h2>
 
           <Input type="number" step="any" max="10" name="cr" />
-          <p className={S.error}>{state.crError}</p>
+          <S.Error>{state.crError}</S.Error>
 
-          <button type="submit" className={S.submit} disabled={!!state.crError}>
+          <S.Button type="submit" disabled={!!state.crError}>
             Converter
-          </button>
+          </S.Button>
 
-          <div className={S.convertionResult}>
+          <S.Result bg={state.gpa ? state.gpa.bg : undefined}>
             <p>{state.gpa ? state.gpa.scale.toFixed(2) : '-'}</p>
-          </div>
+          </S.Result>
 
-          {state.gpa && <h3>Parabéns ! Seu GPA é {state.gpa.grade}</h3>}
-        </form>
+          {state.gpa && (
+            <h3>
+              {state.gpa.scale >= 2.7 ? 'Parabéns ! ' : ''} Seu GPA é{' '}
+              {state.gpa.grade}
+            </h3>
+          )}
+        </S.Form>
       </Context.Provider>
 
       <footer className="footer">
         <p>&copy; 2020</p>
         <p>created by Felipe zeba</p>
       </footer>
-    </div>
+    </S.Home>
   )
 }
 
