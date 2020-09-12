@@ -10,21 +10,6 @@ export const Home = styled.div`
   align-items: center;
 `
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 100vw;
-  background: ${background.bgPrimaryDark};
-
-  h1 {
-    font-family: 'Monoton', cursive;
-    color: ${text.white};
-    font-size: 1.7rem;
-  }
-`
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
