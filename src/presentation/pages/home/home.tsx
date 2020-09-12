@@ -42,7 +42,7 @@ const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
   return (
     <div className={S.home}>
       <header className={S.header}>
-        <h1>LOGO</h1>
+        <h1>CRToGPA</h1>
       </header>
       <Context.Provider value={{ state, setState }}>
         <form className={S.form} onSubmit={handleSubmit}>
@@ -64,6 +64,7 @@ const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
       </Context.Provider>
 
       <footer className="footer">
+        <p>&copy; 2020</p>
         <p>created by Felipe zeba</p>
       </footer>
     </div>
