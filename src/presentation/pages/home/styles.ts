@@ -2,10 +2,13 @@ import styled from 'styled-components'
 import { background, button, text } from '../../styles/colors'
 
 export const Home = styled.div`
+  overflow: hidden;
+`
+
+export const Main = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
   background: #fdd;
   align-items: center;
 `
