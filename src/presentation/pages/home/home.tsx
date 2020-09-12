@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Context from '@/presentation/context/form/form-context'
-import * as S from './styles'
 
-import { Input } from '@/presentation/components'
+import { Input, Header } from '@/presentation/components'
 import { ValidationComposite } from '@/validations/validation-composite/validation-composite'
 import { Converter } from '@/domain/use-cases'
+
+import * as S from './styles'
 
 type Gpa = {
   scale: number
@@ -41,9 +42,7 @@ const home: React.FC<HomeProps> = ({ validation, converter }: HomeProps) => {
 
   return (
     <S.Home>
-      <S.Header>
-        <h1>CRToGPA</h1>
-      </S.Header>
+      <Header />
       <Context.Provider value={{ state, setState }}>
         <S.Form onSubmit={handleSubmit}>
           <h2>Seu CR</h2>
