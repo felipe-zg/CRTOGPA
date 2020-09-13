@@ -12,16 +12,32 @@ export const Main = styled.div`
   align-items: center;
 `
 
-export const Form = styled.form`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100vw;
   height: 100vh;
   background: rgba(255,255,255,0.8);
-  align-items: center;
   padding: 1rem;
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+
+  @media (min-width: 700px) {
+    padding: 3rem;
+  }
+
+  @media (min-width: 1100px) {
+    width: 60vw;
+    padding: 2rem 10rem;
+  }
+
+`
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h2 {
     font-size: 2.2rem;
@@ -34,14 +50,8 @@ export const Form = styled.form`
     text-align: center;
   }
 
-  @media (min-width: 700px) {
-    padding: 3rem;
-  }
 
   @media (min-width: 1100px) {
-    width: 60vw;
-    padding: 2rem 10rem;
-
     h2 {
       font-size: 3.6rem;
     }
@@ -109,4 +119,16 @@ export const Result = styled.div<{ bg: string }>`
     padding: 1.2rem;
     border-radius: 25px;
   }
+`
+
+export const AdBanner = styled.div`
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+`
+
+export const AdImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
 `
