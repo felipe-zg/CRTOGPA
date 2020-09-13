@@ -9,7 +9,6 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #fdd;
   align-items: center;
 `
 
@@ -18,7 +17,7 @@ export const Form = styled.form`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background: ${background.bgPrimary};
+  background: rgba(255,255,255,0.8);
   align-items: center;
   padding: 1rem;
   border-bottom-right-radius: 0.5rem;
